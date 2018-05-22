@@ -1,0 +1,29 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+ul{
+	list-style: none;
+	width: 100px;
+}
+.main-menu{
+	text-align: center;
+	width: 100px;
+	/*height: 30px;*/
+	line-height: 30px;
+	background-color: #3366FF;
+}
+.sub-menu{
+	background-color: red;	
+	display: none;
+}
+.sub-menu>li{
+	text-align: center;
+	height: 30px;
+	line-height: 30px;
+}
+
+.main-menu:hover .sub-menu{
+	display: block;
+	/*background-color: gray;*/	
+}

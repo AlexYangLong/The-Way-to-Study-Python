@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>5秒钟后跳转到百度</h1>
+		<span id="second"></span>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function(){
+				var counter = 5;
+				var second = $('second');
+				second.textContent = '还剩' + counter + 's';
+				window.setTimeout(function(){
+					
+					counter--;
+					if(counter==0){
+						window.location.href="http://www.baidu.com";
+					}else{
+						second.innerText = '还剩' + counter + 's';
+						window.setTimeout(arguments.callee, 1000);
+					}
+				},1000);
+			}());
+		</script>
+	</body>
+</html>

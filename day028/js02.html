@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#adv{
+				width: 1000px;
+				margin: 0 auto;
+				display: none;
+			}
+			p{
+				text-align: center;
+				width: 200px;
+				font-size: 36px;
+				margin-left: 100px;
+				background-color: #008B8B;
+				color: white;
+				border: 1px solid #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="adv">
+			<img src="img/1.jpg" width="1000">
+		</div>
+		<div id="poem">
+			<p>床前明月光</p>
+			<p>疑似地上霜</p>
+			<p>举头望明月</p>
+			<p>低头思故乡</p>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<script>
+			$(function() {
+				$('#adv').fadeIn(2000);
+				$('#adv').on('click', function() {
+					$('#adv').fadeOut(3000);
+				});
+				
+				$('#poem p').on('click', function(ev) {
+					$('#poem p').css('background-color', '#008B8B');
+					$(this).css('background-color', 'darkred');
+					//$(ev.target).css('background-color', 'darkred');
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>打印笑脸</title>
+	</head>
+	<body>
+		<div>
+			请输入打印行数：<input type="text" id="num" value="5" />
+			<button onclick="printSlimeFace()">打印笑脸</button>
+			<div id='print' style="text-align: center;"></div>
+			
+			<script>
+				console.log('\u263a'.length);
+				function printSlimeFace(){					
+					var num = document.getElementById('num').value;
+					var print = document.getElementById('print');
+					for (var i=num; i>0;i--){
+						print.innerHTML += '<div>';
+//						for (var j=1; j<=num-i;j++){
+//							print.innerHTML +='&nbsp;&nbsp;&nbsp;';
+//						}
+						for (var j=1; j<=2*i-1;j++){
+							print.innerHTML +='\u263a';
+						}
+						print.innerHTML += '</div>';
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

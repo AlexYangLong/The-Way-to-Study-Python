@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="mm"></div>
+		<button id="add">加载图片</button>
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<script>
+			$(function() {
+				$('#add').on('click', function() {
+					var url = 'http://api.tianapi.com/meinv/'; 
+//					$.getJSON(url, function(data){
+//						for(var i=0; i<data.newslist.length; i++){
+//							$('#mm').append($('<img>').attr('src', data.newslist[i].picUrl).attr('width','300'));
+//						}
+//					});
+
+					$.ajax({
+						'url': url,
+						'type': 'get',
+						'data': {'key': 'fab41aa3a9038dd3f43424a53a181b8c', 'num': 10},
+						'dataType': 'json',
+						'success': function(data){
+							for(var i=0; i<data.newslist.length; i++){
+								$('#mm').append($('<img>').attr('src', data.newslist[i].picUrl).attr('width','300'));
+							}
+						},
+						'error': function(error){
+							alert(error);
+						},
+					});
+				});
+				
+				
+			});
+		</script>
+	</body>
+</html>

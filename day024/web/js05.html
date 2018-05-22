@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>房间预订</title>
+	</head>
+	<body>
+		<h1>房间预订</h1>
+		<hr>
+		<div>状态：<span id="status">营业中</span></div>
+		<hr>
+		<div>剩余房间数：<span id="roomNum">15</span></div>
+		<hr>
+		<div>
+			<button onclick="checkIn()">预订</button> 
+			<button onclick="checkOut()">退房</button>
+			<button onclick="changeStatus()">改变状态</button>
+		</div>
+		<script>
+//			window.onload = function () {  
+//				var status = window.document.getElementById('status');
+//				var roomNum = window.document.getElementById('roomNum');
+//				alert(status.innerText)
+//			}
+
+//			var status = window.document.getElementById('status');
+//			var roomNum = window.document.getElementById('roomNum');
+
+			function checkIn(){
+				var status = window.document.getElementById('status');
+				var roomNum = window.document.getElementById('roomNum');
+				if (status.innerText == '休息中'){
+					alert('休息中，预订失败！');
+				}else{
+					//alert('预订成功！');
+					if (roomNum.innerText == '0'){
+						alert('全部房间已预订');
+					}else{
+						alert('预订成功！');
+//						roomNum.innerText = parseInt(roomNum.innerText)-1;
+						roomNum.innerText = roomNum.innerText-1;
+					}
+				}
+			}
+				
+			function checkOut(){
+				var status = window.document.getElementById('status');
+				var roomNum = window.document.getElementById('roomNum');
+				if (status.innerText == '休息中'){
+					alert('休息中，预订失败！');
+				}else{
+					//alert('预订成功！');
+					if (roomNum.innerText == '15'){
+						alert('全部房间已退完');
+					}else{
+						alert('退房成功！');
+						roomNum.innerText = parseInt(roomNum.innerText)+1;
+					}
+				}
+			}
+			
+			function changeStatus(){
+				var status = window.document.getElementById('status');
+//				alert(status.innerText)
+				if (status.innerText == '休息中'){
+					status.innerText = '营业中';
+				}else if (status.innerText == '营业中'){
+					status.innerText = '休息中';
+				}
+			}
+		</script>
+	</body>
+</html>

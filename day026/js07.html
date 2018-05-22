@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>qqq</li>
+			<li>www</li>
+			<li>eee</li>
+		</ul>
+		<div><input id="content" type="text"> <button id="add">添加</button> <button id="del">删除最后一项</button></div>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function(){
+				// trim() 函数的兼容性问题  IE9以下，不能用trim()
+				String.prototype.trim = String.prototype.trim || function (){
+					index1 = 0;
+					while(index1 < this.length && this.charAt(index1) == ' '){
+						index1++;
+					}
+					var newStr = this.substring(index1);
+					index2 = this.length - 1;
+					while(index2 >= 0 && newStr.charAt(index2) == ' '){
+						index2--;
+					}
+					newStr = newStr.substring(0, index2);
+					return newStr;
+				}
+				
+				var ul = document.getElementById('list');
+				bindEvent($('add'), 'click', function(){
+					var content = $('content').value.trim();
+					if (content == ''){
+						alert('内容不能为空！');
+						return;
+					}
+					var newli = document.createElement('li');
+					newli.textContent = content;
+					ul.appendChild(newli);
+					$('content').value = '';
+					$('content').focus();
+				});
+				
+				bindEvent($('del'), 'click', function(){
+					var lis = document.querySelectorAll('#list>li');
+					if (lis.length != 0){
+						ul.removeChild(lis[lis.length-1]);
+					}
+				});
+			}());
+		</script>
+	</body>
+</html>

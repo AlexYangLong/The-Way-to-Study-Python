@@ -1,0 +1,42 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: url(../img/homework1/backdrop.gif) repeat;
+}
+
+.header{
+	padding: 20px 0;
+}
+.header .title{
+	text-align: center;
+}
+.header .description{
+	text-align: center;
+	margin-top: 10px;
+	color: #996600;
+}
+.main-body{
+	margin-top: 10px;
+}
+.main-body .content{
+	width: 720px;
+	margin: 0 auto;
+}
+.section{
+	width: 200px;
+	padding: 10px;
+	margin: 10px 10px;
+	float: left;
+	background-color: #DDDDDD;
+}
+.section figcaption>img{
+	width: 20px;
+	height: 20px;
+	/*margin-bottom: -2px;*/
+	vertical-align: top;
+}
+.section figcaption>span{
+	color: #996600;
+}

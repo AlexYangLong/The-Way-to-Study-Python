@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>二级菜单</title>
+		<style>
+			/*这一步是去掉默认边框*/
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				width:960px;
+				margin: 0 auto;
+			}
+			#box {
+				width:150px;
+				margin: 0 auto;
+			}
+			#box li{
+				cursor: pointer;
+				width:150px;
+				height: 35px;
+				text-align: center;
+				font:bold 22px/35px arial,'幼圆';
+				background-color:darkcyan ;
+				color:white;
+				border-bottom: 1px solid white;
+				overflow:hidden;
+			}
+			#box li:hover{
+				height: auto;
+			}
+			#box li>ul>li{
+				background-color: red;
+			}
+			a{
+				text-decoration: none;
+			}
+			#box a{
+				color:white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<ul>
+				<li>
+					<a href="#">Menu1</a>
+					<ul>
+						<li><a href="#">Menu1-1</a></li>
+						<li><a href="#">Menu1-2</a></li>
+						<li><a href="#">Menu1-3</a></li>
+					</ul>
+					
+				</li>
+				<li>
+					<a href="#">Menu2</a>
+					<ul>
+						<li><a href="#">Menu2-1</a></li>
+						<li><a href="#">Menu2-2</a></li>
+						
+					</ul>
+				</li>
+				<li>
+					<a href="#">Menu3</a>
+					<ul>
+						<li><a href="#">Menu3-1</a></li>
+						<li><a href="#">Menu3-2</a></li>
+						<li><a href="#">Menu3-3</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">Menu4</a>
+					<ul>
+						<li><a href="#">Menu4-1</a></li>
+						<li><a href="#">Menu4-2</a></li>
+						
+					</ul>
+				</li>
+				<li>
+					<a href="#">Menu5</a>
+					<ul>
+						<li><a href="#">Menu5-1</a></li>
+						<li><a href="#">Menu5-2</a></li>
+						<li><a href="#">Menu5-3</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</body>
+<html>

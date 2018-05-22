@@ -1,0 +1,81 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.tab{
+	border-collapse: collapse;
+	margin: 100px auto;
+}
+.tab td{
+	/*border: 1px solid #999;*/
+	padding: 10px 20px;
+}
+.tab .head{
+	background-color: #99CCFF;
+}
+.tab .odd{
+	background-color: #CCFFCC;
+}
+.tab .even{
+	background-color: #FFCC99;
+}
+
+.left-top{
+	border-top: none;
+	border-left: none;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+	border-radius: 5px 0px 0px 0px;
+}
+.right-top{
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid #999;
+	border-left: 1px solid #999;
+	border-radius: 0px 5px 0px 0px;
+}
+.top-other{
+	border-top: none;
+	border-left: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+}
+.right{
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-right: none;
+}
+.left{
+	border-top: 1px solid #999;
+	border-left: none;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+}
+.other{
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+}
+.left-bottom{
+	border-top: 1px solid #999;
+	border-left: none;
+	border-bottom: none;
+	border-right: 1px solid #999;
+	border-radius: 0px 0px 0px 5px;
+}
+.right-bottom{
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	border-bottom: none;
+	border-right: none;
+	border-radius: 0px 0px 5px 0px;
+}
+.bottom-other{
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	border-bottom: none;
+	border-right: 1px solid #999;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="showtime"></div>
+		<div>
+			<button id="btn">暂停</button>
+		</div>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function(){				
+				showTime();
+				
+				var timer = 0;
+				bindEvent($('btn'), 'click', function(ev){
+					if(timer != 0){
+						window.clearInterval(timer);
+						timer = 0;
+						ev.target.textContent = '继续';
+					}else{
+						showTime();
+						timer = window.setInterval(showTime, 1000);
+						ev.target.textContent = '暂停';
+					}
+				});
+				
+				timer = window.setInterval(showTime, 1000);
+				// alert(timer);
+			}());
+			
+			function showTime(){
+				var time = new Date();
+
+				var year = time.getFullYear();
+				var month = time.getMonth()+1;
+				var day = time.getDate();
+				var hour = time.getHours();
+				var minute = time.getMinutes();
+				var second = time.getSeconds();
+				var weekday = time.getDay();
+				switch (weekday){
+					case 1:
+						weekday = '星期一';
+						break;
+					case 2:
+						weekday = '星期二';
+						break;
+					case 3:
+						weekday = '星期三';
+						break;
+					case 4:
+						weekday = '星期四';
+						break;
+					case 5:
+						weekday = '星期五';
+						break;
+					case 6:
+						weekday = '星期六';
+						break;
+					default:
+						weekday = '星期天';
+						break;
+				};
+
+				$('showtime').innerText = '今天是' +year+'年'+fs(month)+'月'+fs(day)+'日  '+weekday+' '+fs(hour)+':'+fs(minute)+':'+fs(second);
+			}
+			
+			function fs(val1, val2=10){
+				if (val1 < val2){
+					return '0'+val1;
+				}else{
+					return val1;
+				}
+			}
+		</script>
+	</body>
+</html>

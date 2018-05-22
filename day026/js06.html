@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form method="post" action="" id="hobbyform">
+			<div><input type="checkbox"  /><label>qqq</label></div>
+			<div><input type="checkbox"  /><label>www</label></div>
+			<div><input type="checkbox"  /><label>eee</label></div>
+			<div><input type="checkbox"  /><label>rrr</label></div>
+			<div><input type="checkbox"  /><label>ttt</label></div>
+			<input type="button" id="checkAll" value="全选"/>
+			<input type="button" id="cancel" value="取消"/>
+			<input type="button" id="selectInvert" value="反选"/>
+		</form>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function(){
+				var checkboxes = document.querySelectorAll('#hobbyform>div>input[type=checkbox]');
+				bindEvent($('checkAll'), 'click', function(){
+					for(var i=0; i<checkboxes.length; i++){
+						checkboxes[i].checked = true;
+					}
+				});
+				bindEvent($('cancel'), 'click', function(){
+					for(var i=0; i<checkboxes.length; i++){
+						checkboxes[i].checked = false;
+					}
+				});
+				bindEvent($('selectInvert'), 'click', function(){
+					for(var i=0; i<checkboxes.length; i++){
+						checkboxes[i].checked = !checkboxes[i].checked
+//						if(checkboxes[i].checked){
+//							checkboxes[i].checked = false;
+//						}else{
+//							checkboxes[i].checked = true;
+//						}
+					}
+				});
+			}());
+		</script>
+	</body>
+</html>

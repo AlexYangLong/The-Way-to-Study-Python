@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 150px;
+				margin-top: 30px;
+				margin-left: 40px;
+			}
+			ul>li{
+				position: relative;
+				height: 40px;
+				list-style: none;
+				text-align: center;
+				line-height: 40px;
+				color: white;
+				border-bottom: 1px solid white;
+			}
+			ul>li>a{
+				position: absolute;
+				right: 10px;
+				top: 13px;
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				background: url(img/ui-icons-trans.png) no-repeat -95px -130px;
+			}
+			.bgc{
+				background-color: #008000;
+			}
+			
+			#adv{
+				position: fixed;
+				top: 50px;
+				right: 50px;
+				width: 150px;
+				height: 150px;
+				background-color: blue;
+			}
+			#closeBtn{
+				border: 1px solid gray;
+				float: right;
+			}
+			
+			#container{
+				width: 500px;
+				height: 250px;
+				border: 1px solid #969696;
+				margin: 50px auto;
+			}
+			#panel{
+				width: 500px;
+				margin: 50px auto;
+				text-align: center;
+			}
+			.small{
+				width: 50px;
+				height: 50px;
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="adv">
+			<button id="closeBtn" type="button">关闭</button>
+		</div>
+		<h1>啊啊啊啊啊</h1>
+		<hr>
+		<ul id="list">
+			<li class="bgc">苹果<a href="javascript:void(0);"></a></li>
+			<li class="bgc">香蕉<a href="javascript:void(0);"></a></li>
+			<li class="bgc">梨子<a href="javascript:void(0);"></a></li>
+		</ul>
+		<div><input type="text" id="content"/> <button type="button" id="add">添加</button></div>
+		<br>
+		<hr>
+		<div id="container">
+			
+		</div>
+		<div id="panel">
+			<button type="button" id="btn_add">添加</button>
+			<button type="button" id="btn_twinkle">闪烁</button>
+		</div>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function(){
+				function randomColor(){
+					return 'rgb('+Math.floor(Math.random()*256)+','+Math.floor(Math.random()*256)+','+Math.floor(Math.random()*256)+')'
+				}
+				var num = 0;
+				bindEvent($('btn_add'), 'click', function(){
+					num++;
+					if (num <= 50){
+						var div = document.createElement('div');
+						div.className = 'small';
+						div.style.backgroundColor = randomColor();
+						$('container').appendChild(div);
+					}
+				});
+				var timer = 0;
+				bindEvent($('btn_twinkle'), 'click', function(){
+					if(!timer){
+						timer = window.setInterval(function(){
+//							var s_divs = document.querySelectorAll('#container .small');
+							var s_divs = $('container').children;
+							for(var i=0;i<s_divs.length;i++){
+								s_divs[i].style.backgroundColor = randomColor();
+							}
+						}, 200);
+					}
+				});
+				
+				var counter = 0;
+				bindEvent($('closeBtn'), 'click', function(){
+					counter++;
+					if(counter == 3){
+						$('adv').style.display = 'none';
+					}else{
+						window.open('http://www.baidu.com', '_blank');
+					}
+				});
+				
+				// 事件回调函数（callback）：通常是给浏览器来调用
+				// 知道事件触发后要执行什么，但是不知道什么时候触发
+				// 代表事件对象的ev是事件发生时有浏览器回调函数式传入
+				function removeItem(ev){
+					ev = ev || window.event;
+					$('list').removeChild(ev.target.parentNode);
+				}
+				
+				// 给开始就有的li中的按钮添加点击事件
+				var delBtns = document.querySelectorAll('#list a');
+				for(var i=0; i<delBtns.length; i++){
+					bindEvent(delBtns[i], 'click', removeItem);
+				}
+				
+				bindEvent($('add'), 'click', function(){
+					var content = $('content').value.trim();
+					if (content == ''){
+						alert('内容不能为空！');
+						return;
+					}
+					
+					var newli = document.createElement('li');
+					newli.textContent = content;
+					newli.className = 'bgc';
+					var a = document.createElement('a');
+					a.href='javascript:void(0);';
+					bindEvent(a, 'click', removeItem);
+					
+					newli.appendChild(a);
+					$('list').appendChild(newli);
+					
+					$('content').value = '';
+					$('content').focus();
+				});
+				
+			}());
+		</script>
+	</body>
+</html>

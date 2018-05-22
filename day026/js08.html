@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>qqq <button class="del">X</button></li>
+			<li>www <button class="del">X</button></li>
+			<li>eee <button class="del">X</button></li>
+		</ul>
+		<div><input id="content" type="text"> <button id="add">添加</button></div>
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function(){
+				var ul = document.getElementById('list');
+				
+				// 给开始就有的li中的按钮添加点击事件
+				var delBtns = document.getElementsByClassName('del');
+				for(var i=0; i<delBtns.length; i++){
+//					delBtns[i].onclick=function(){
+//						
+//					}
+//					delBtns[i].addEventListener('click', function(){
+//						ul.removeChild(this.parentNode);
+//					});
+					bindEvent(delBtns[i], 'click', function(){
+						ul.removeChild(this.parentNode);
+					});
+				}
+				
+				bindEvent($('add'), 'click', function(){
+					var content = $('content').value.trim();
+					if (content == ''){
+						alert('内容不能为空！');
+						return;
+					}
+					var newli = document.createElement('li');
+					newli.innerHTML = content+'<button class="del">X</button>';
+					ul.appendChild(newli);
+					
+					// 给新加的li中的按钮添加点击事件
+					var delBtns = newli.getElementsByClassName('del');
+					for(var i=0; i<delBtns.length; i++){
+						bindEvent(delBtns[i], 'click', function(){
+							ul.removeChild(this.parentNode);
+						});
+					}
+					
+					$('content').value = '';
+					$('content').focus();
+				});
+				
+			}());
+		</script>
+	</body>
+</html>

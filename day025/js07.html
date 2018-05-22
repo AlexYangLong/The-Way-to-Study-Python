@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>房间预订</title>
+	</head>
+	<body>
+		<h1>房间预订</h1>
+		<hr>
+		<div>状态：<span id="status">营业中</span></div>
+		<hr>
+		<div>剩余房间数：<span id="roomNum">15</span></div>
+		<hr>
+		<div>
+			<button onclick="checkIn()">预订</button> 
+			<button onclick="checkOut()">退房</button>
+			<button onclick="changeStatus()">改变状态</button>
+		</div>
+		<script>
+			
+			var hotel = {
+				'name': '7Days',
+				'status': true,
+				'roomNum': 15,
+				'open': function () {
+					this.status = true;
+					alert(this.name + '开始营业');
+				},
+				'close': function(){
+					this.status = false;
+					alert(this.name + '打烊了')
+				},
+				'checkIn': function(num){
+					if (this.status && this.roomNum - num >= 0){
+						this.roomNum -= num;
+						alert('预订成功');
+					}else{
+						alert('预订失败');
+					}
+				},
+				'checkOut': function(num){
+					if (this.status){
+						this.roomNum += num;
+						alert('退房成功')
+					}else{
+						alert('退房失败')
+					}
+				}
+			};
+
+			hotel.open();
+			hotel.checkIn(5);
+			hotel.checkOut(2);
+			alert(hotel.roomNum);
+		</script>
+	</body>
+</html>

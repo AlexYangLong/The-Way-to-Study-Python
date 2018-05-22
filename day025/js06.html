@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function g(n){
+				if (n < 0){
+					return 0;
+				}else if(n == 0){
+					return 1;
+				}
+				return g(n - 1) + g(n - 2) + g(n - 3);
+			}
+			alert(g(10))
+		</script>
+	</body>
+</html>

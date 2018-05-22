@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#data{
+				border-collapse: collapse;
+			}
+			#data td,th{
+				border: 1px solid #666666;
+				/*padding: 10px;*/
+				width: 120px;
+				height: 40px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<table id="data">
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Tel</th>
+				<th>Address</th>
+				<th>Memo</th>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+			<tr>
+				<td>item 1</td>
+				<td>item 2</td>
+				<td>item 3</td>
+				<td>item 4</td>
+				<td>item 5</td>
+			</tr>
+		</table>
+		<button id="delBtn">删除所有行</button>
+		<button id="clearBtn">清除表格数据</button>
+		<button id="addlink">添加超链接</button>
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<script>
+			$(function() {
+				
+				$('#data tr:odd').css('background-color', 'lightblue');
+				$('#data tr:even').css('background-color', 'lightgrey');
+				$('#data tr:first').css('background-color', 'white');
+				
+				$('#delBtn').on('click', function() {
+					$('#data tr:gt(0)').remove();
+				});
+				
+				$('#clearBtn').on('click', function() {
+					$('#data tr:gt(0) td').text('');
+				});
+				
+				$('#addlink').one('click', function() {
+					$('#data tr:gt(0) td').each(function() {
+						$(this).html('<a href="">'+$(this).text()+'</a>');
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

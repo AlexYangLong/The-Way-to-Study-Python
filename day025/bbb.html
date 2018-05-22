@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="foo">
+		<label for="num">请输入0-100的整数;</label>
+		<input type="text" id="num" size = 3 />
+		<button id="ok">确定<tton>
+		<button id="reset">重置<tton>
+		<div id="hint"></div>
+		</div>
+		<script src="mylib.js"></script>
+		<script>
+			(function(){
+				var answer = parseInt(Math.random() * 100 + 1);
+				var okButton = $('ok');
+				okButton.onclick = function(){
+					var numInput = document.getElementById('num');
+					var value = parseInt(numInput.value);
+					var message = '你猜的是' + numInput.value + ''
+					if(numInput.value > answer){
+						message += '小一点';
+						
+					}else if(numInput.value<answer){
+						message += '大一点';
+					}else{
+						message += '恭喜你答对了';
+					}
+					var hintDiv = document.getElementById('hint');
+					hintDiv.innerHTML += '<p>' + message + '</p>';
+					numInput.value = ''
+					numInput.focus()
+				};
+			}());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="test()">测 试</button>
+		
+		<script src="../js/js01.js" type="text/javascript"></script>
+		<!-- 样式表CSS前置，JS后置 -->
+		<!--<script>		
+			
+			function test(){
+				var name = window.prompt('请输入您的名字：');
+				console.log(typeof(name))
+				if (name && name != 'null'){
+					window.alert('你好，' + name + '!');
+				}else{
+					window.alert('大家好');
+				}
+			}
+		</script>-->
+		<script>
+			// 即时调用1
+//			(function(){
+//				var sum = 0;
+//				for (var i = 1; i <= 100; i++){
+//					sum += i;
+//				}
+//				document.write(sum);
+//			}());
+			
+			// 即时调用2
+//			+function(){
+//				var sum = 0;
+//				for (var i = 1; i <= 100; i++){
+//					sum += i;
+//				}
+//				document.write(sum);
+//			}();
+
+			function lastDigit(cardNo){
+				var len = cardNo.length;
+				for (var i = len - 1; i >= 0; i -= 1){
+					var ch = cardNo.charAt(i);
+					if (ch >= '0' && ch <= '9'){
+						return parseInt(ch);
+					}
+				}
+				return '';
+			}
+			
+//			alert(lastDigit('12345FGH'))
+			var cardNo = window.prompt('请输入您的车牌号：');
+			if (cardNo && cardNo != 'null'){
+				var lastNum = lastDigit(cardNo);
+				var weekday = new Date().getDay(); //获取今天是星期几， 返回 1，2，3，4，5，6，0
+				if (weekday > 0 && weekday < 6){
+					if (weekday == lastNum || lastNum % 5 == weekday || lastNum + 5 == weekday){
+						alert('今日限行！');
+					}else{
+						alert('今日不限行!');
+					}
+				}else{
+					alert('非工作日不限行!');
+				}
+			}
+		</script>
+	</body>
+</html>

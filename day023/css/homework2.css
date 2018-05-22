@@ -1,0 +1,110 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.container{
+	width: 940px;
+	margin: 0 auto;
+}
+.clearfix{
+	clear: both;
+}
+
+/********************header部分******************/
+.logo{
+	height: 130px;
+}
+.nav{
+	background-color: #969696;
+}
+.nav>ul{
+	list-style: none;
+	overflow: auto;
+	padding: 10px 30px;
+}
+.nav>ul>li{
+	float: left;
+	margin-right: 50px;
+}
+.nav>ul>li>a{
+	text-decoration: none;
+	color: white;
+}
+.nav>ul>li>a:hover{
+	color: black;
+}
+.active{
+	color: black !important;
+}
+
+/*************************main-body部分**********************/
+.left, .right{
+	float: left;
+}
+.left{
+	width: 680px;
+	/*height: 200px;*/
+	border-right: 1px solid #EEE;
+}
+.section{
+	padding: 20px;
+	/*margin-bottom: ;*/
+	overflow: auto;
+}
+.section>div{
+	float: left;
+}
+.img-div{
+	width: 290px;
+	padding: 5px 5px 10px 5px;
+	border: 1px solid #EEE;
+}
+.desp-div{
+	margin-left: 20px;
+	padding-top: 20px;
+}
+.desp-div h1,h2{
+	font-weight: normal;	
+}
+.desp-div h1{
+	font-size: 24px;
+}
+.desp-div h2{
+	font-size: 20px;
+	color:#CC3333;
+}
+.desp-div>div{
+	margin-top: 15px;
+	word-wrap:break-word;  /* 当内容超过div宽度时自动换行，注意div必须要有宽度 */
+	width: 315px;
+}
+
+.right-top, .right-bottom{
+	margin-top: 35px;
+	margin-left: 20px;
+	color:#CC3333;
+}
+.right-top h1, .right-bottom h1{
+	font-size: 24px;
+	font-weight: normal;	
+	margin-bottom: 10px;
+}
+.right-top>div{
+	padding: 10px;
+	width: 180px;
+	word-wrap:break-word;
+	border-bottom: 1px solid #EEE;
+}
+.right-bottom>div{
+	padding-top: 10px;
+	width: 180px;
+	word-wrap:break-word;
+	color: black;
+}
+
+/********************footer部分********************/
+.copyright{
+	color: white;
+	background-color: #C0C0C0;
+	padding: 10px 20px;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 150px;
+				margin-top: 30px;
+				margin-left: 40px;
+			}
+			ul>li{
+				position: relative;
+				height: 40px;
+				list-style: none;
+				text-align: center;
+				line-height: 40px;
+				color: white;
+				border-bottom: 1px solid white;
+			}
+			ul>li>a{
+				position: absolute;
+				right: 10px;
+				top: 13px;
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				background: url(img/ui-icons-trans.png) no-repeat -95px -130px;
+			}
+			.bgc{
+				background-color: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>水果列表</h1>
+		<hr>
+		<ul id="list">
+			<li class="bgc">苹果<a href="javascript:void(0);"></a></li>
+			<li class="bgc">香蕉<a href="javascript:void(0);"></a></li>
+			<li class="bgc">梨子<a href="javascript:void(0);"></a></li>
+		</ul>
+		<div><input type="text" id="content"/> <button type="button" id="add">添加</button></div>
+		<br>
+		
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<script>
+			$(function() {
+				$('#list a').on('click', removeItem);
+				
+				$('#add').on('click', function() {
+					var content = $('#content').val().trim();
+					if (content == ''){
+						alert('content不能为空！');
+						return;
+					}					
+					var li = $('<li>').text(content).addClass('bgc');
+					li.append($('<a>').attr('href', 'javascript:void(0);').on('click', removeItem));
+					$('#list').append(li);
+					
+					$('#content').val('').focus();
+				});
+				
+				function removeItem(ev){
+					$(ev.target).parent().remove();
+				}
+			});
+		</script>
+	</body>
+</html>

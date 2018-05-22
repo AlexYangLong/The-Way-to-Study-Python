@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.plane{
+				width: 100px;
+				height: 124px;
+				position: absolute;				
+				background: url(img/hero1.png) no-repeat;
+			}
+			
+			#one, #two, #three{
+				width: 100px;
+				height: 124px;
+				position: absolute;				
+				background: url(img/hero1.png) no-repeat;
+			}
+			#one{
+				top: 600px;
+				left: 100px;
+			}
+			#two{
+				top: 500px;
+				left: 400px;
+			}
+			#three{
+				top: 400px;
+				left: 800px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="one"></div>
+		<div id="two"></div>
+		<div id="three"></div>
+		
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<script>
+			// 构造器函数
+			function Plane(x, y, speed){
+				this.x = x;
+				this.y = y;
+				this.speed = speed;
+				
+			}
+			// 原型设计模式
+			Plane.prototype.flag = true;
+			Plane.prototype.init = function() {
+				this.div = $('<div>').addClass('plane').css({'left':this.x+'px', 'top':this.y+'px'});
+				$(document.body).append(this.div);
+			};
+			Plane.prototype.fly = function() {
+				var img = this.flag ? 'img/hero2.png' : 'img/hero1.png';
+				this.y -= this.speed;
+				this.div.css('background-image', 'url('+ img +')').css('top', this.y+'px');
+				this.flag = !this.flag;					
+			};
+			Plane.prototype.destory = function() {
+				this.div.remove();
+			}
+			
+			$(function() {
+				var planes = [];
+				for (var i=0;i<5;i++){
+					var plane = new Plane(100 + 120*i, 600, 5);
+					plane.init();
+					planes[i] = plane;
+				}
+				
+				window.setInterval(function() {
+					for (var i=0;i<planes.length;i++){
+						planes[i].fly();
+						if (planes[i].y <= -124){
+							planes[i].destory();
+							
+						}
+					}
+				}, 200);
+			});
+			
+//			function fly(element){
+//				element.flag = true;
+//				window.setInterval(function() {
+//					element.animate({top : '-=4px'}, 200);
+//					if(element.flag){
+//						element.css('background-image', 'url(img/hero2.png)');
+//						element.flag = false;
+//					}else{
+//						element.css('background-image', 'url(img/hero1.png)');
+//						element.flag = true;
+//					}
+//				}, 200);
+//			}			
+			
+//			function fly(element){
+//				element.flag = true;
+//				window.setInterval(function() {
+//					element.css('top', (parseInt(element.css('top'))-5)+'px');
+//					if(element.flag){
+//						element.css('background-image', 'url(img/hero2.png)');
+//						element.flag = false;
+//					}else{
+//						element.css('background-image', 'url(img/hero1.png)');
+//						element.flag = true;
+//					}
+//				}, 200);
+//			}
+//			
+//			$(function () {
+//				fly($('#one'));
+//				fly($('#two'));
+//				fly($('#three'));
+//			});
+		</script>
+	</body>
+</html>

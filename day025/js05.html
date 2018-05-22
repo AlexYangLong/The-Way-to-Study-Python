@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function f(n){
+				res = 1;
+				for (var i = 1; i <= n; i++){
+					res *= i;
+				}
+				return res;
+			}
+			function f(n){
+				// 1、收敛条件 —— 什么时候结束递归
+				// 2、递归公式 
+				if (n == 1 || n == 0){
+					return 1;
+				}
+				return n*f(n-1);
+				// arguments.callee() 表示正在被调用的函数
+				return n*arguments.callee(n-1);
+			}
+			alert(f(10));
+		</script>
+	</body>
+</html>

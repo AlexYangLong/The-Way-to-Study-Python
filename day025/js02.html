@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			var randomNum = parseInt(Math.random()*100 + 1);			
+			var flag = false;
+			var counter = 0
+			do{
+				var answer = window.prompt('请输入您猜的数字：');
+				if (randomNum > answer){
+					alert('大一点儿');
+				}else if (randomNum < answer){
+					alert('小一点儿');
+				}else if (randomNum == answer){
+					alert('恭喜猜对了');
+					flag = true;
+				}
+				counter++;
+			}while(!flag);
+			
+			if (counter > 7){
+				alert('您的智商已欠费！')
+			}
+		</script>
+	</body>
+</html>

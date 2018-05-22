@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			var day = new Date().getDay();
+			var work;
+			switch (day){
+				case 1:
+					work = '写程序';
+					break;
+				case 2:
+					work = '改BUG';
+					break;
+				case 3:
+					work = '聚会';
+					break;
+				case 4:
+					work = '学英语';
+					break;
+				case 5:
+					work = '出差';
+					break;
+				default:
+					work = '休息';
+					break;
+			}
+			alert(work);
+			
+			var sum = 0;
+			var i = 1;
+			do{
+				sum += i;
+				i++;
+			}while(i <= 100);
+			alert(sum);
+		</script>
+	</body>
+</html>

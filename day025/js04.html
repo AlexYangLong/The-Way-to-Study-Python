@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="test"> test </button>
+		
+		<script src="mylib.js"></script>
+		<script>
+			(function(){
+				function sayHello(){
+					alert('hello!');
+				}
+				
+//				if ($('test').addEventListener){
+//					$('test').addEventListener('click', sayHello);
+//					$('test').addEventListener('click', function(){
+//						if (confirm('Are you sure？')){
+//							$('test').removeEventListener('click', sayHello);
+//						}
+//					});
+//				}else{
+//					$('test').attachEvent('onclick', sayHello);
+//					$('test').attachEvent('onclick', function(){
+//						if (confirm('Are you sure？')){
+//							$('test').detachEvent('onclick', sayHello);
+//						}
+//					});
+//				}
+
+				// 使用自己封装的方法
+				bindEvent($('test'), 'click', sayHello);
+				bindEvent($('test'), 'click', function(evt){
+					if(confirm('Are you sure?')){
+						//unbindEvent($('test'), 'click', sayHello);
+						// this 当前对象元素
+						//unbindEvent(this, 'click', sayHello);
+						// evt 表示当前事件，evt.target 表示引发当前事件的事件源
+						evt = evt || window.event;  // 兼容低版本的IE
+						var target = evt.target || evt.srcElement;
+						unbindEvent(target, 'click', sayHello);
+					}
+				});
+			}());
+		</script>
+	</body>
+</html>

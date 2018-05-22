@@ -1,0 +1,84 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: arial, "幼圆";
+}
+body {	
+	background-color: #EEE;
+}
+
+/*form{
+	margin: 0 auto;
+	width: 500px;
+}*/
+
+h1 {
+	/*color:red;*/
+	font-size: 24px;
+	/*font-weight: bold;
+				font-style: italic;*/
+	/*font: bold italic 24px arial,"微软雅黑";*/
+	text-align: center;
+}
+
+#login {
+	width: 250px;
+	background-color: white;
+	border: 1px solid #CCC;
+	border-radius: 5px;
+	/*text-align: center;*/
+	padding: 30px 50px;
+	margin: 0 auto;
+}
+
+.login-lbl {
+	display: inline-block;
+	width: 50px;
+	text-align: right;
+	margin-right: 5px;
+}
+
+#login>div {
+	margin: 15px 0;
+}
+
+.center {
+	text-align: center;
+}
+
+.center>input {
+	display: inline-block;
+	width: 60px;
+	height: 25px;
+	margin: 0 10px;
+	border: none;
+	/*padding: 10px 15px;*/
+	cursor: pointer;
+	color: white;
+	background-color: red;
+	border-radius: 5px;
+}
+
+.link-reg {
+	font-size: 13px;
+	text-align: right;
+	margin-top: 25px !important;
+}
+
+.link-reg a {
+	text-decoration: none;
+	color: #3366FF;
+}
+
+.link-reg a:active,
+.link-reg a:hover {
+	color: red;
+}
+
+#login input[type='text'],
+#login input[type='password'] {
+	padding: 4px 10px;
+	border: none;
+	border-bottom: 1px solid #999;
+	outline: none;
+}

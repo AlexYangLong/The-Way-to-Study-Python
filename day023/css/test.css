@@ -1,0 +1,19 @@
+body {
+	width: 960px;
+	margin: 0 auto;
+}
+
+#foo {
+	width: 600px;
+	border: 1px solid red;
+	margin: 0 auto;
+	overflow: auto;
+}
+#foo > .poem{
+	width: 100px;
+	float: left;
+	margin: 0 50px;	
+}
+.clearfix{
+	clear: both;
+}

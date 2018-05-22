@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="checkbox"  /><label>qqq</label><br>
+		<input type="checkbox"  /><label>www</label><br>
+		<input type="checkbox"  /><label>eee</label><br>
+		<input type="checkbox"  /><label>rrr</label><br>
+		<button type="button" id="checkAll">全选</button>
+		<button type="button" id="cancel">取消</button>
+		<button type="button" id="selectInvert">反选</button>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function(){
+				var checkboxs = document.getElementsByTagName('input');
+				bindEvent($('checkAll'), 'click', function(){
+					for(var i=0; i<checkboxs.length; i++){
+						checkboxs[i].checked = true;
+					}
+				});
+				bindEvent($('cancel'), 'click', function(){
+					for(var i=0; i<checkboxs.length; i++){
+						checkboxs[i].checked = false;
+					}
+				});
+				bindEvent($('selectInvert'), 'click', function(){
+					for(var i=0; i<checkboxs.length; i++){
+						if(checkboxs[i].checked){
+							checkboxs[i].checked = false;
+						}else{
+							checkboxs[i].checked = true;
+						}
+					}
+				});
+			}());
+		</script>
+	</body>
+</html>

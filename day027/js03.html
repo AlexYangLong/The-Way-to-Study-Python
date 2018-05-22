@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#one, #two{
+				width: 150px;
+				height: 150px;
+				position: fixed;
+			}
+			
+			#one{
+				top: 100px;
+				left: 100px;
+				background-color: red;
+			}
+			#two{
+				bottom:100px;
+				right:100px ;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="one"></div>
+		<div id="two"></div>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			function move(element){
+//				var isMouseDown = false; // 鼠标是否按下
+//				var originLeft = 0; // div左上角left值
+//				var originTop = 0; // div左上角top值
+//				var mounseX = 0; // 鼠标点击时横坐标
+//				var mounseY = 0; // 鼠标点击时纵坐标
+				
+				bindEvent(element, 'mousedown', function(ev){
+					element.isMouseDown = true;
+					ev = ev || window.event;
+					
+					var divStyle = getStyle(element);
+					element.originLeft = parseInt(divStyle.left);
+					element.originTop = parseInt(divStyle.top);	
+					element.mounseX = ev.clientX;
+					element.mounseY = ev.clientY
+				});
+				bindEvent(element, 'mouseup', function() {
+					element.isMouseDown = false;
+				});
+				bindEvent(element, 'mouseout', function() {
+					element.isMouseDown = false;
+				});
+				bindEvent(element, 'mousemove', function(ev){
+					if(!element.isMouseDown) return ;
+					
+					ev = ev || window.event;
+					var eX = ev.clientX;
+					var eY = ev.clientY;
+					
+					var x = eX - element.mounseX;
+					var y = eY - element.mounseY;
+					element.style.left = (element.originLeft + x) +'px';
+					element.style.top = (element.originTop + y) +'px';
+				});
+			}
+			
+			(function() {
+				move($('one'));
+				move($('two'));
+				
+			}());
+		</script>
+	</body>
+</html>

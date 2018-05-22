@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="css/base.css" type="text/css">
+		<link rel="stylesheet" href="css/tabs.css" type="text/css">
+		<style>
+			.tab-list a {
+				cursor: default;
+			}
+			.tab-list h3 {
+				cursor: pointer;
+			}
+			.content {
+				height: 150px;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h1>Monsieur Pigeon</h1>
+		</header>
+		<section class="page">
+			<div class="tabs">
+				<ul class="tab-list" id="list">
+					<li class="active">
+						<a class="tab-control" href="#tab-1">
+							<h3>Description</h3>
+						</a>
+					</li>
+					<li>
+						<a class="tab-control" href="#tab-2">
+							<h3>Ingredients</h3>
+						</a>
+					</li>
+					<li>
+						<a class="tab-control" href="#tab-3">
+							<h3>Delivery</h3>
+						</a>
+					</li>
+				</ul>
+				<div class="content">
+					<div class="tab-panel active" id="tab-1">
+						<p>Take your tastebuds for a gentle stroll through an English garden filled with Monsieur Pigeon's beautifully fragrant Flower Series marshmallows. With three sweetly floral options: <strong>Elderberry</strong>, <strong>Rose Petal</strong>, and <strong>Chrysanthemum</strong> - all edible and all naturally flavored - they will have you dreaming of butterflies and birdsong in no time.</p>
+					</div>
+					<div class="tab-panel" id="tab-2">
+						<p><strong>ELDERBERRY:</strong> sugar, glucose syrup, elderberry concentrate, gelatine, natural color, cornflour, confectioner's sugar <strong>ROSE PETAL:</strong> sugar, glucose syrup, rose water, gelatine, natural color, cornflour, sugared rose petals, confectioner's sugar <strong>CHRYSANTHEMUM:</strong> sugar, glucose syrup, natural chrysanthemum extract, gelatine, natural color, cornflour, confectioner's sugar</p>
+					</div>
+					<div class="tab-panel" id="tab-3">
+						<p>Free postage and packaging on all orders! Due to the perishable nature of our product, we regret that we are unable to ship items internationally at this time. If you would like to find out when Monsieur Pigeon is coming to your country, please sign up for the mailing list.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!--<script type="text/javascript" src="mylib.js" ></script>-->
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js" ></script>
+		<script>
+			(function() {
+//				function changeContent(em1, em2, em3){
+//					bindEvent(em1, 'click', function() {
+//						em1.parentNode.className = 'active';
+//						em2.parentNode.removeAttribute('class', 'active');
+//						em3.parentNode.removeAttribute('class', 'active');
+//					});
+//				}
+//				
+//				changeContent($('ctab-1'), $('ctab-2'), $('ctab-3'));
+//				changeContent($('ctab-2'), $('ctab-1'), $('ctab-3'));
+//				changeContent($('ctab-3'), $('ctab-2'), $('ctab-1'));
+
+				$('#list li').on('click', function(ev) {
+					$('#list li').removeClass('active');
+//					$(ev.target).parent().addClass('active');
+//					$(ev.target).parent().parent().addClass('active');
+				});
+			}());
+		</script>
+	</body>
+</html>
+

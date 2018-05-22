@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	&copy; &reg; &yen; &trade;
+	<form action="" method="POST" enctype="multipart/form-data">
+		<fieldset>
+		<legend>&lt;&lt;必填项&gt;&gt;</legend>
+		<p>
+			<label for="name">用户名：</label>
+			<input type="text" name="name" maxlength="10" placeholder="请输入用户名" required>
+		</p>
+		<p>
+			<label for="password">密&nbsp;&nbsp;&nbsp;码：</label>
+			<input type="password" name="password">
+		</p>
+		<p>
+			<label for="phone">手机号：</label>
+			<input type="text" name="phone">
+		</p>
+		<p>
+			<label for="email">邮箱：</label>
+			<input type="email" name="email" placeholder="请输入邮箱">
+		</p>
+		<p>
+			<label for="name">生日：</label>
+			<input type="date" name="birth">
+		</p>
+		<p>
+			<label for="name">性别：</label>
+			<input type="radio" name="gender" value="1" checked="checked">男
+			<input type="radio" name="gender" value="0">女
+		</p>
+		<p>
+			<label for="name">头像：</label>
+			<input type="file" name="photo" multiple="multiple">
+		</p>
+		<p>
+			<label for="name">籍贯：</label>
+			<select name="prov">
+				<option value="1">北京</option>
+				<option value="2" selected="selected">四川</option>
+				<option value="3">重庆</option>
+			</select>
+		</p>
+		</fieldset>
+		<fieldset>
+		<legend>选填项</legend>
+		<p>
+			<label for="name">爱好：</label>
+			<input type="checkbox" name="hobby" checked="checked" disabled="disabled">游戏
+			<input type="checkbox" name="hobby">阅读
+			<input type="checkbox" name="hobby">旅游
+			<input type="checkbox" name="hobby">运动
+			<input type="checkbox" name="hobby">其他
+		</p>
+		<p>
+			<label for="name">自我介绍：</label>
+			<textarea cols="30" rows="5"></textarea>
+		</p>
+		</fieldset>
+		<p>
+			<input type="submit" name="" value="注册">
+			<input type="reset" name="" value="重置">
+		</p>
+	</form>
+	<iframe src="http://map.baidu.com" frameborder="0" width="500" height="400"></iframe>
+</body>
+</html>

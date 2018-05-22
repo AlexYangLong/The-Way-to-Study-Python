@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#adv{
+				width: 300px;
+				height: 320px;
+				float: right;
+				/*top: 50px;
+				right: 50px;*/
+				display: block;
+			}
+			#close button{
+				height: 20px;
+				float: right;
+			}
+			#content{
+				clear: both;
+				width: 300px;
+				height: 300px;
+				border: 1px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="adv">
+			<div id="close"><button id="closeBtn">关闭</button></div>
+			<div id="content">此处是广告占位！</div>
+		</div>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function(){
+				var counter = 0;
+				bindEvent($('closeBtn'), 'click', function(){
+					counter ++;
+					if(counter == 3){
+						$('adv').style.display = 'none';
+					}else{
+//						window.location.href='http://www.baidu.com';
+						window.open('http://www.baidu.com', '_blank');
+					}
+				});
+			}());
+		</script>
+	</body>
+</html>

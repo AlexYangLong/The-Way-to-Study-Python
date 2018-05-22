@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1 id="foo">Hello</h1>
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			// 修改元素的样式通过 style属性 来修改
+			// 读取元素的样式需要通过 getComputeStype() 来获取
+			var h1 = getStyle($('foo'));			
+//			alert(h1.color);
+//			alert(h1.fontSize.length);
+//			h1Size = h1.fontSize.split(h1.fontSize.length-2);
+//			alert(h1Size);
+			$('foo').style.fontSize = 2*parseInt(h1.fontSize) + 'px';
+		</script>
+	</body>
+</html>

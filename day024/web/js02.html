@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>随机点名</title>
+	</head>
+	<body>
+		<div>被点名者：<span id="show"></span></div>
+		<button onclick="displayStudent()">点 名</button>
+		
+		<script>
+			function getStudentList(){
+				var char_list = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+				var num_list = ['1', '2', '3', '5', '6', '7', '8', '9', '10'];
+				var stu_list = new Array();
+				// 生成学生列表
+				for (var i=0; i < char_list.length; i++){
+					for (var j=0; j < num_list.length; j++){
+						stu_list.push(char_list[i] + num_list[j]);
+					}
+				}
+				//			document.write(stu_list)
+				return stu_list;
+			}
+
+			function callPerson(){
+				stu_list = getStudentList();
+				call_list = new Array();
+				for (var i=0;i<20;){
+					index = Math.floor(Math.random()*(stu_list.length));
+					console.log(call_list.indexOf(stu_list[index]))
+					// 判断是否重复
+					if (call_list.indexOf(stu_list[index]) == -1){
+						call_list.push(stu_list[index]);
+						i++;
+					}
+				}
+				return call_list;				
+			}
+			
+			function displayStudent(){
+				document.getElementById('show').innerHTML = callPerson();
+			}
+		</script>
+	</body>
+</html>

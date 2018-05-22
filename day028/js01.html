@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#one{
+				width: 400px;
+				height: 400px;
+				background-color: red;
+			}
+			#two{
+				width: 300px;
+				height: 300px;
+				position: relative;
+				top:50px;
+				left: 50px;
+				background-color: green;
+			}
+			#three{
+				width: 200px;
+				height: 200px;
+				position: relative;
+				top:50px;
+				left: 50px;
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="one">
+			<div id="two">
+				<div id="three">
+					
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="mylib.js" ></script>
+		<script>
+			(function() {
+				bindEvent($('one'), 'click', function() {
+					alert('one');
+				});
+				bindEvent($('two'), 'click', function(ev) {
+					alert('two');
+					ev = handleEvent(ev);
+					ev.stopPropagation();
+				});
+				bindEvent($('three'), 'click', function() {
+					alert('three');
+				});
+			}());
+			
+		</script>
+	</body>
+</html>
